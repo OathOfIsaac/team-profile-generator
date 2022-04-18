@@ -1,0 +1,27 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "a command line application that accepts user inpu",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OathOfIsaac/team-profile-generator.git"
+  },
+  "keywords": [
+    "generator",
+    "html",
+    "node"
+  ],
+  "author": "Isaac Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OathOfIsaac/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/OathOfIsaac/team-profile-generator#readme"
+}
