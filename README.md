@@ -19,6 +19,7 @@ Clone from GitHub and run npm install, npm install --save inquirer@^8.0.0 (You m
 Enter npm run on the command line, follow the prompt, download the corresponding html file in ./output/
 ## Usage
 Enter your name (as manager) , with corresponding information, then enter however many Engineers and Interns as you wish.
+Walkthrough video: https://drive.google.com/file/d/1ZduOAIr1-_nU4GDIssedWvZXAt7xp-wa/view
 ## Credits
 jdeschat 
 ## Contributing
