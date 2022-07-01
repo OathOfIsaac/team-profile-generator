@@ -155,7 +155,7 @@ const promptEngineer = () => {
         }        
     ]).then(answers => {
         console.log(answers);
-        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHubUser);
+        const engineer = new Engineer(answers.name, answers.employeeId, answers.email, answers.gitHubUser);
         teamMembers.push(engineer);
         promptMenu();
     })
@@ -168,5 +168,81 @@ const promptIntern = () => {
     ~~~~~~~~~~~~~~~~
     `);
 
-    return inquirer.prompt
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the Intern? **required**',
+            validate: internName => {
+                if (internName) {
+                    return true;
+                } else {
+                    console.log('Please enter the name of your free labor!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'What is the employee Id of the Intern? **required**',
+            validate: employeeId => {
+                if (employeeId) {
+                    return true;
+                } else {
+                    console.log('Please enter the employee Id of your free labor!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the email address of the Intern? **required**',
+            validate: email => {
+                if (email) {
+                    return true;
+                } else {
+                    console.log('Please enter the email of your free labor!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'classOf',
+            message: 'What is the School and Graduating class (Bootcamp, Corhort, Etc) of the Intern? **If N/A type N/A**',
+            validate: internClass => {
+                if (internClass) {
+                    return true;
+                } else {
+                    console.log('Please enter the Graduating Class (Or N/A) of your free labor!');
+                    return false;
+                }
+            }
+        }
+    ]).then(answers => {
+        console.log(answers);
+        const intern = new Intern(answers.name, answers.employeeId, answers.email, answers.internClass);
+        teamMembers.push(intern);
+        promptMenu();
+    })
+};
+
+const buildTeam = () => {
+    console.log(`
+    ~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~
+    Finished building my team!
+    ~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~
+    `);
+
+    // Creating output dir if the output path does not exist
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, generateSite(teamMembers), 'utf-8');
 }
+
+promptManager();
